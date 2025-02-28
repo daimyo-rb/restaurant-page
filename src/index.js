@@ -32,13 +32,19 @@ function clearContent(){
     const contentContainer = document.getElementById('content');
     contentContainer.innerHTML = '';
 }
+function changeActiveTab(newActiveTabName){
+    tabNameToElemMap[activeTab].classList.remove('active');
+    activeTab = newActiveTabName;
+    tabNameToElemMap[activeTab].classList.add('active');
+}
+function buildPageContent(pageBuilder){
+    pageBuilder();
+}
 function clickNavHandler(e) {
     if (navButtonMap[e.target.id] && navButtonMap[e.target.id]['tab'] !== activeTab){
         clearContent();
-        navButtonMap[e.target.id]['buildFunction']();
-        tabNameToElemMap[activeTab].classList.remove('active');
-        activeTab = navButtonMap[e.target.id]['tab'];
-        tabNameToElemMap[activeTab].classList.add('active');
+        buildPageContent(navButtonMap[e.target.id]['buildFunction']);
+        changeActiveTab(navButtonMap[e.target.id]['tab']);
     }
 }
 let nav = document.getElementsByTagName('nav')[0];
