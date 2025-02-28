@@ -20,6 +20,12 @@ nav > button {
     font-size: 1em;
     padding: 10px 25px;
 }
+button:not(.active) {
+    background-color: rgb(255, 255, 255);
+}
+button.active {
+    background-color: rgb(223, 223, 223);
+}
 body {
     background-color: rgb(182, 255, 251);
 }

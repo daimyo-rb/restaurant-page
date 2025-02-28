@@ -1,4 +1,4 @@
-export function buildMain() {
+export function buildHome() {
     const contentContainer = document.getElementById('content');
     const content = `
     <div class="inner-content">
